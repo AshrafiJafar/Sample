@@ -1,0 +1,91 @@
+﻿@model Person
+<p>Create</p>
+
+
+<div class="row">
+
+    <form method="post">
+        <div class="col-md-3">
+            <div class="mb-3">
+                @Html.LabelFor(x => x.FirstName, null , new{@class="form-label"})
+                @Html.TextBoxFor(x => x.FirstName,"" ,new{@class="form-control"})
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="mb-3">
+                @Html.LabelFor(x => x.LastName, null , new{@class="form-label"})
+                @Html.TextBoxFor(x => x.LastName,"" ,new{@class="form-control"})
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mb-3">
+                @Html.LabelFor(x => x.FatherName, null , new{@class="form-label"})
+                @Html.TextBoxFor(x => x.FatherName,"" ,new{@class="form-control"})
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Age, null , new{@class="form-label"})
+                @Html.TextBoxFor(x => x.Age,"" ,new{@class="form-control"})
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mb-3">
+                @Html.LabelFor(x => x.PhoneNumber, null , new{@class="form-label"})
+                @Html.TextBoxFor(x => x.PhoneNumber,"" ,new{@class="form-control"})
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-success">Save</button>
+            <a href="/Default/index" class="btn btn-danger">back</a>
+        </div>
+
+    </form>
+
+
+
+
+    @*<form method="post">
+    <div class="col-md-3">
+    <div class="mb-3">
+    <label for="FirstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="FirstName" name="FirstName">
+    </div>
+    </div>
+
+    <div class="col-md-3">
+    <div class="mb-3">
+    <label for="LastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="LastName" name="LastName">
+    </div>
+    </div>
+
+    <div class="col-md-3">
+    <div class="mb-3">
+    <label for="FatherName" class="form-label">Father Name</label>
+    <input type="text" class="form-control" id="FatherName" name="FatherName">
+    </div>
+    </div>
+
+    <div class="col-md-3">
+    <div class="mb-3">
+    <label for="Age" class="form-label">Age</label>
+    <input type="text" class="form-control" id="Age" name="Age">
+    </div>
+    </div>
+
+    <div class="col-md-3">
+    <div class="mb-3">
+    <label for="PhoneNumber" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <button class="btn btn-success">Save</button>
+    <a href="/Default/index" class="btn btn-danger">back</a>
+    </div>
+    </form>*@
+
+
+</div>
