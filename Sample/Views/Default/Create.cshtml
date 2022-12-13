@@ -1,4 +1,10 @@
 ﻿@model Person
+@{
+    var selectList = new List<SelectListItem>() { 
+        new SelectListItem { Value = "0", Text = "Female"},
+        new SelectListItem { Value = "1", Text = "Male"}
+    };
+}
 <p>Create</p>
 
 
@@ -16,6 +22,12 @@
             <div class="mb-3">
                 @Html.LabelFor(x => x.LastName, null , new{@class="form-label"})
                 @Html.TextBoxFor(x => x.LastName,"" ,new{@class="form-control"})
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="mb-3">
+                @Html.LabelFor(x => x.Gender, null , new{@class="form-label"})
+                @Html.DropDownListFor(x => x.Gender,selectList, "--" ,new{@class="form-control"})
             </div>
         </div>
         <div class="col-md-3">

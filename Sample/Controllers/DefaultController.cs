@@ -16,9 +16,11 @@ namespace Sample.Controllers
                     Id = 1,
                     FirstName = "Jafar",
                     LastName = "Ashrafi",
+                    Gender = 1,
                     FatherName = "Mohammad",
                     Age = 35,
-                    PhoneNumber = "+90123334234"
+                    PhoneNumber = "+90123334234",
+                    CreatedTime = DateTime.Now,
                 });
             }
         }
@@ -34,7 +36,8 @@ namespace Sample.Controllers
         [HttpPost]
         public IActionResult Create(Person person)
         {
-            person.Id = People.Max(x => x.Id) + 1;
+            person.Id = People.Any() ?  (People.Max(x => x.Id) + 1) : 1;
+            person.CreatedTime= DateTime.Now;
             People.Add(person);
             return RedirectToAction("Index");
         }
@@ -44,6 +47,34 @@ namespace Sample.Controllers
         {
             var person = People.Single(x => x.Id == id);
             return View(person);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Person person)
+        {
+            var existedPerson = People.FirstOrDefault(x => x.Id == person.Id);
+            int index = People.IndexOf(existedPerson);
+            People[index].FirstName = person.FirstName;
+            People[index].LastName = person.LastName;
+            People[index].Gender = person.Gender;
+            People[index].FatherName = person.FatherName;
+            People[index].Age = person.Age;
+            People[index].PhoneNumber = person.PhoneNumber;
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var person = People.Single(x => x.Id == id);
+            return View(person);
+        }
+        [HttpPost]
+        public IActionResult Delete(Person person)
+        {
+            var existedPerson = People.Single(x => x.Id == person.Id);
+            People.Remove(existedPerson);
+            return RedirectToAction("Index");
         }
 
     }

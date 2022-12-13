@@ -1,55 +1,44 @@
 ﻿@model Person
-@{
-    var selectList = new List<SelectListItem>() {
-        new SelectListItem { Value = "0", Text = "Female", Selected = Model.Gender == 0 },
-        new SelectListItem { Value = "1", Text = "Male", Selected = Model.Gender == 1}
-    };
-}
-<div class="row">
 
-    <form method="post">
+<div class="row">
+    <form>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.FirstName, null , new{@class="form-label"})
-                @Html.TextBoxFor(x => x.FirstName,"" ,new{@class="form-control"})
+                @Html.TextBoxFor(x => x.FirstName,"" ,new{@class="form-control", @readonly = true})
             </div>
         </div>
 
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.LastName, null , new{@class="form-label"})
-                @Html.TextBoxFor(x => x.LastName,"" ,new{@class="form-control"})
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="mb-3">
-                @Html.LabelFor(x => x.Gender, null , new{@class="form-label"})
-                @Html.DropDownListFor(x => x.Gender,selectList, "--" ,new{@class="form-control"})
+                @Html.TextBoxFor(x => x.LastName,"" ,new{@class="form-control", @readonly = true})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.FatherName, null , new{@class="form-label"})
-                @Html.TextBoxFor(x => x.FatherName,"" ,new{@class="form-control"})
+                @Html.TextBoxFor(x => x.FatherName,"" ,new{@class="form-control", @readonly = true})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.Age, null , new{@class="form-label"})
-                @Html.TextBoxFor(x => x.Age,"" ,new{@class="form-control"})
+                @Html.TextBoxFor(x => x.Age,"" ,new{@class="form-control", @readonly = true})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.PhoneNumber, null , new{@class="form-label"})
-                @Html.TextBoxFor(x => x.PhoneNumber,"" ,new{@class="form-control"})
+                @Html.TextBoxFor(x => x.PhoneNumber,"" ,new{@class="form-control", @readonly = true})
             </div>
         </div>
+    </form>
+    <form method="post">
         <div class="col-md-3">
-            <button class="btn btn-success">Save</button>
+            <button class="btn btn-success">Delete</button>
             <a href="/Default/index" class="btn btn-danger">back</a>
         </div>
-
     </form>
 
 </div>
