@@ -10,18 +10,20 @@ namespace Sample.Controllers
         {
             if (People == null)
             {
-                People = new List<Person>();
-                People.Add(new Person()
+                People = new List<Person>
                 {
-                    Id = 1,
-                    FirstName = "Jafar",
-                    LastName = "Ashrafi",
-                    Gender = 1,
-                    FatherName = "Mohammad",
-                    Age = 35,
-                    PhoneNumber = "+90123334234",
-                    CreatedTime = DateTime.Now,
-                });
+                    new Person()
+                    {
+                        Id = 1,
+                        FirstName = "Jafar",
+                        LastName = "Ashrafi",
+                        Gender = 1,
+                        FatherName = "Mohammad",
+                        Age = 35,
+                        PhoneNumber = "+90123334234",
+                        CreatedTime = DateTime.Now,
+                    }
+                };
             }
         }
         public IActionResult Index()

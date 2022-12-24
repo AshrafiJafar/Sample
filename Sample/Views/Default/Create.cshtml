@@ -15,6 +15,7 @@
             <div class="mb-3">
                 @Html.LabelFor(x => x.FirstName, null , new{@class="form-label"})
                 @Html.TextBoxFor(x => x.FirstName,"" ,new{@class="form-control"})
+                @Html.ValidationMessageFor(x => x.FirstName, "", new{@class="text-danger"})
             </div>
         </div>
 
@@ -22,30 +23,35 @@
             <div class="mb-3">
                 @Html.LabelFor(x => x.LastName, null , new{@class="form-label"})
                 @Html.TextBoxFor(x => x.LastName,"" ,new{@class="form-control"})
+                @Html.ValidationMessageFor(x => x.LastName, "", new{@class="text-danger"})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.Gender, null , new{@class="form-label"})
                 @Html.DropDownListFor(x => x.Gender,selectList, "--" ,new{@class="form-control"})
+                @Html.ValidationMessageFor(x => x.Gender, "", new{@class="text-danger"})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.FatherName, null , new{@class="form-label"})
                 @Html.TextBoxFor(x => x.FatherName,"" ,new{@class="form-control"})
+                @Html.ValidationMessageFor(x => x.FatherName, "", new{@class="text-danger"})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.Age, null , new{@class="form-label"})
                 @Html.TextBoxFor(x => x.Age,"" ,new{@class="form-control"})
+                @Html.ValidationMessageFor(x => x.Age, "", new{@class="text-danger"})
             </div>
         </div>
         <div class="col-md-3">
             <div class="mb-3">
                 @Html.LabelFor(x => x.PhoneNumber, null , new{@class="form-label"})
                 @Html.TextBoxFor(x => x.PhoneNumber,"" ,new{@class="form-control"})
+                @Html.ValidationMessageFor(x => x.PhoneNumber, "", new{@class="text-danger"})
             </div>
         </div>
         <div class="col-md-3">
@@ -101,3 +107,9 @@
 
 
 </div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
