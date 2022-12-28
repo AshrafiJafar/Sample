@@ -20,7 +20,7 @@ namespace Sample.Controllers
                         Gender = 1,
                         FatherName = "Mohammad",
                         Age = 35,
-                        PhoneNumber = "+90123334234",
+                        PhoneNumber = "90123334234",
                         CreatedTime = DateTime.Now,
                     }
                 };
@@ -77,6 +77,20 @@ namespace Sample.Controllers
             var existedPerson = People.Single(x => x.Id == person.Id);
             People.Remove(existedPerson);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult IsValid(string phoneNumber)
+        {
+            //if(phoneNumber.Length < 12)
+            //{
+            //    return Json("Phone number Couldn't be less than 12 number");
+            //}
+            if(People.Any(x => x.PhoneNumber == phoneNumber))
+            {
+                return Json(false);
+            }
+            return Json(true);
         }
 
     }

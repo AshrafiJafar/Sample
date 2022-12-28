@@ -37,8 +37,8 @@ namespace Sample.Models
         public string FatherName { get; set; }
 
         [Display(Name = "Phone number")]
-        [RegularExpression("^(\\+98?)?{?(0?9[0-9]{9,9}}?)$", ErrorMessage = "Phone number is not in a correct format.")]
-
+        //[RegularExpression("^(\\+98?)?{?(0?9[0-9]{9,9}}?)$", ErrorMessage = "Phone number is not in a correct format.")]
+        [Remote("IsValid","Default",HttpMethod = "Get", ErrorMessage = "Phone number exists!")]
         public string? PhoneNumber { get; set; }
         [Display(Name = "Created time")]
         public DateTime CreatedTime { get; set; }
